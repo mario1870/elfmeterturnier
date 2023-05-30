@@ -11,10 +11,10 @@ datasource db {
 }
 
 
-model User {
+model Teams {
   id        Int      @id @default(autoincrement())
   teamname      String 
-  email     String   @unique
+  email     String   
   kontaktperson String
   gender  String
 }
