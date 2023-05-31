@@ -9,7 +9,10 @@ module.exports = {
     extend: {
       backgroundImage: {
         'wallpaper': "url('/wallpaper.png')",
-      }
+      },
+      fontSize: {
+        'xxs': '0.625rem', // Hier kannst du den gewünschten Wert für die kleinere Schriftgröße angeben
+      },
     },
   },
   plugins: [],
