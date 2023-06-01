@@ -1,43 +1,73 @@
 "use client"
-import axios from "axios"
-import Link from "next/link"
-import {AiFillCheckCircle, AiFillCloseCircle} from 'react-icons/ai'
-import { useState } from "react"
-import { motion, useAnimation } from 'framer-motion';
+import axios from 'axios';
+import Link from 'next/link';
+import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Form(props) {
+  const [teamname, setTeamname] = useState('');
+  const [kontaktperson, setKontaktperson] = useState('');
+  const [emailadresse, setEmailadresse] = useState('');
+  const [datenschutz, setDatenschutz] = useState(false);
 
-    const [teamname, setTeamname] = useState('');
-    const [kontaktperson, setKontaktperson] = useState('');
-    const [emailadresse, setEmailadresse] = useState('');
-    const [datenschutz, setDatenschutz] = useState(false)
-  
+  const checkUsernameExists = async (teamname) => {
+    try {
+      const response = await axios.post('/api/check_username', { teamname });
+      const data = response.data;
+      return data.exists;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  };
+
+  const handlePayment = async (e) => {
+    e.preventDefault();
+
+    // Überprüfe zuerst, ob der Benutzername bereits existiert
+    const teamnameExists = await checkUsernameExists(teamname);
+    if (teamnameExists) {
+      alert('Benutzername existiert bereits');
+      return;
+    }
+    else{
+      // Führe den Rest des Codes aus, wenn der Benutzername nicht existiert
+      if (teamname !== '' && kontaktperson !== '' && emailadresse !== '' && datenschutz !== false) {
+        const data = {
+          teamname: teamname,
+          kontaktperson: kontaktperson,
+          emailadresse: emailadresse,
+        };
+
+        try {
+          const response = await axios.post(`/api/checkout_${props.gender}`, data);
+          window.location.assign(response.data);
+        } catch (error) {
+          console.error('Fehler beim Senden der Formulardaten:', error);
+        }
+      } else {
+        alert('Bitte alle Felder ausfüllen');
+      }
+
+    }
 
 
+  };
 
-    const handlePayment = async (e) => {
-        e.preventDefault();
+  const handleInputChangeTeamname = (event) => {
+    setTeamname(event.target.value);
+  };
+  const handleInputChangeKontaktperson = (event) => {
+    setKontaktperson(event.target.value);
+  };
+  const handleInputChangeEmailadresse = (event) => {
+    setEmailadresse(event.target.value);
+  };
+  const handleInputChangeDatenschutz = (event) => {
+    setDatenschutz(event.target.checked);
+  };
 
-        if (teamname !== '' && kontaktperson !== '' && emailadresse !== '' && datenschutz!==false) {
-
-            const data = {
-                teamname: teamname,
-                kontaktperson: kontaktperson,
-                emailadresse: emailadresse
-              };
-
-          try {const response = await axios.post(`/api/checkout_${props.gender}`, data);
-            window.location.assign(response.data);
-          } catch (error) {
-            console.error('Fehler beim Senden der Formulardaten:', error);
-          }
-        } else {alert('Bitte alle Felder ausfüllen');}};
-
-      const handleInputChangeTeamname = (event) => { setTeamname(event.target.value);};
-      const handleInputChangeKontaktperson = (event) => {setKontaktperson(event.target.value);};
-      const handleInputChangeEmailadresse = (event) => {setEmailadresse(event.target.value);};
-      const handleInputChangeDatenschutz = (event) => {setDatenschutz(!datenschutz);};
-      
     return(
         <>
               
@@ -52,19 +82,19 @@ export default function Form(props) {
               </h1>
           </motion.div>
 
-          <ul className="flex justify-center md:px-20 py-4">
+          <ul className="flex justify-center py-4">
               <li className="text-xl font-bold" >
                 <div className="mt-6 space-y-4">
                     <motion.div className="flex space-x-3 justify-start items-center" initial={{ scale: 0 }}  animate={{ scale: 1 }}  transition={{ delay: 0.2, duration: 0.5 }}>
-                        {teamname ? (<AiFillCheckCircle className="h-5 w-5 flex-shrink-0 text-green-500 ml-2" aria-hidden="true" />) : (<AiFillCloseCircle className="h-5 w-5 flex-shrink-0 text-red-500 ml-2" aria-hidden="true" />)}
-                        <h2 className="text-sm md:text-xl text-gray-500">
+                        {teamname ? (<AiFillCheckCircle className="h-5 w-5 flex-shrink-0 text-green-500 ml-2" aria-hidden="true" />) : (<AiFillCloseCircle className="h-5 w-5 flex-shrink-0 text-red-500/75 ml-2" aria-hidden="true" />)}
+                        <h2 className="text-sm md:text-xl text-gray-500/75">
                             <input type="text" placeholder="Teamname" onChange={handleInputChangeTeamname} className="outline-none"/>
                         </h2>
                     </motion.div>
 
                     <div className="border" />
                         <motion.div className="flex space-x-3 justify-start items-center" initial={{ scale: 0 }}  animate={{ scale: 1 }}  transition={{ delay: 0.3, duration: 0.5 }} >
-                          {kontaktperson ? (<AiFillCheckCircle className="h-5 w-5 flex-shrink-0 text-green-500 ml-2" aria-hidden="true" />) : (<AiFillCloseCircle className="h-5 w-5 flex-shrink-0 text-red-500 ml-2" aria-hidden="true" />)}
+                          {kontaktperson ? (<AiFillCheckCircle className="h-5 w-5 flex-shrink-0 text-green-500/75 ml-2" aria-hidden="true" />) : (<AiFillCloseCircle className="h-5 w-5 flex-shrink-0 text-red-500/75 ml-2" aria-hidden="true" />)}
                           <h2 className="text-sm md:text-xl text-gray-500">
                               <input type="text" placeholder="Kontaktperson" onChange={handleInputChangeKontaktperson} className="outline-none" />
                           </h2>
@@ -73,7 +103,7 @@ export default function Form(props) {
                     <div className="border" />
 
                     <motion.div className="flex space-x-3 justify-start items-center" initial={{ scale: 0 }}  animate={{ scale: 1 }}  transition={{ delay: 0.4, duration: 0.5 }}>
-                    {emailadresse ? (<AiFillCheckCircle className="h-5 w-5 flex-shrink-0 text-green-500 ml-2" aria-hidden="true" />) : (<AiFillCloseCircle className="h-5 w-5 flex-shrink-0 text-red-500 ml-2" aria-hidden="true" />)}
+                    {emailadresse ? (<AiFillCheckCircle className="h-5 w-5 flex-shrink-0 text-green-500/75 ml-2" aria-hidden="true" />) : (<AiFillCloseCircle className="h-5 w-5 flex-shrink-0 text-red-500/75 ml-2" aria-hidden="true" />)}
                     <h2 className="text-sm md:text-xl text-gray-500">
                         <input type="text" placeholder="Emailadresse" onChange={handleInputChangeEmailadresse} className="outline-none" />
                     </h2>
@@ -85,8 +115,8 @@ export default function Form(props) {
               </li>
           </ul>
 
-          <div class="flex items-center px-4">
-            <input onChange={handleInputChangeDatenschutz} id="link-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+          <div className="flex items-center px-4">
+            <input onChange={handleInputChangeDatenschutz} checked={datenschutz} id="link-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
             <label htmlFor="link-checkbox" className="ml-2 text-xxs font-medium text-gray-900 dark:text-gray-300">Ich stimme den <Link href="#" className="text-blue-600 dark:text-blue-500 hover:underline">Datenschutzbestimmungen </Link>und dem <Link href="#" className="text-blue-600 dark:text-blue-500 hover:underline">Haftungsausschluss</Link> zu.</label>
           </div>
 

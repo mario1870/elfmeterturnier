@@ -57,22 +57,6 @@ const fulfillOrder = async (metadata) => {
     }
 }
 
-
-app.get('/api/teams', async (req, res) => {
-    const prisma = new PrismaClient()
-    // insert into prisma
-    try {
-      const teams = await prisma.teams.findMany();
-      res.status(200).json(teams);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Fehler beim Abrufen der Daten' });
-    }
-  });
-  
-
-
-
 app.post('/api/webhook', bodyParser.raw({type: 'application/json'}), async (request, response) => {
   const payload = request.body;
   const sig = request.headers['stripe-signature'];

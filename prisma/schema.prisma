@@ -13,7 +13,7 @@ datasource db {
 
 model Teams {
   id        Int      @id @default(autoincrement())
-  teamname      String 
+  teamname      String @unique
   email     String   
   kontaktperson String
   gender  String
