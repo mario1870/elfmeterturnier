@@ -14,7 +14,7 @@ export default function Price(props) {
   }
 
   return (
-    <motion.div className="flex flex-col items-center justify-center pt-4" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.1, duration: 0.5 }}>
+    <div className="flex flex-col items-center justify-center pt-4" >
       <h1 className="text-3xl md:text-5xl font-bold">
         <p className='text-base'>{text}</p>
         {(price / 100).toLocaleString('de-DE', {
@@ -22,6 +22,6 @@ export default function Price(props) {
           currency: 'EUR'
         })}
       </h1>
-    </motion.div>
+    </div>
   );
 }

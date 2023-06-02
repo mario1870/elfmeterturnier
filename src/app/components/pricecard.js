@@ -21,9 +21,9 @@ const PricingCard = () => {
     <div className="border-gray-100 shadow-2xl border-4 text-center mx-4 w-80 md:w-96 md:mx-8 bg-white rounded-3xl">
       
        <div>
-        <motion.div className="bg-blue-100 h-28 items-center font-bold flex flex-col justify-center items-center rounded-t-3xl">
-            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ stiffness: 260, damping: 40}}><Image src="/TVMlogo.png" alt="Logo" width={100} height={100} className="p-4" /></motion.div>
-        </motion.div>
+        <div className="bg-blue-100 h-28 items-center font-bold flex flex-col justify-center items-center rounded-t-3xl">
+            <div><Image src="/TVMlogo.png" alt="Logo" width={100} height={100} className="p-4" /></div>
+        </div>
 
         <div className="w-full bg-blue-100 h-16 flex flex-row justify-center items-center rounded-b-3xl">
           <span

@@ -102,29 +102,29 @@ export default function Form(props) {
           <ul className="flex justify-center py-4">
               <li className="text-xl font-bold" >
                 <div className="mt-6 space-y-4">
-                    <motion.div className="flex space-x-3 justify-start items-center" initial={{ scale: 0 }}  animate={{ scale: 1 }}  transition={{ delay: 0.2, duration: 0.5 }}>
+                    <div className="flex space-x-3 justify-start items-center">
                         {teamname ? (<AiFillCheckCircle className="h-5 w-5 flex-shrink-0 text-green-500 ml-2" aria-hidden="true" />) : (<AiFillCloseCircle className="h-5 w-5 flex-shrink-0 text-red-500/75 ml-2" aria-hidden="true" />)}
                         <h2 className="text-sm md:text-xl text-gray-500/75">
                             <input type="text" placeholder="Teamname" onChange={handleInputChangeTeamname} className="outline-none"/>
                         </h2>
-                    </motion.div>
+                    </div>
 
                     <div className="border" />
-                        <motion.div className="flex space-x-3 justify-start items-center" initial={{ scale: 0 }}  animate={{ scale: 1 }}  transition={{ delay: 0.3, duration: 0.5 }} >
+                        <div className="flex space-x-3 justify-start items-center" >
                           {kontaktperson ? (<AiFillCheckCircle className="h-5 w-5 flex-shrink-0 text-green-500/75 ml-2" aria-hidden="true" />) : (<AiFillCloseCircle className="h-5 w-5 flex-shrink-0 text-red-500/75 ml-2" aria-hidden="true" />)}
                           <h2 className="text-sm md:text-xl text-gray-500">
                               <input type="text" placeholder="Kontaktperson" onChange={handleInputChangeKontaktperson} className="outline-none" />
                           </h2>
-                    </motion.div>
+                    </div>
 
                     <div className="border" />
 
-                    <motion.div className="flex space-x-3 justify-start items-center" initial={{ scale: 0 }}  animate={{ scale: 1 }}  transition={{ delay: 0.4, duration: 0.5 }}>
-                    {emailadresse ? (<AiFillCheckCircle className="h-5 w-5 flex-shrink-0 text-green-500/75 ml-2" aria-hidden="true" />) : (<AiFillCloseCircle className="h-5 w-5 flex-shrink-0 text-red-500/75 ml-2" aria-hidden="true" />)}
-                    <h2 className="text-sm md:text-xl text-gray-500">
-                        <input type="text" placeholder="Emailadresse" onChange={handleInputChangeEmailadresse} className="outline-none" />
-                    </h2>
-                    </motion.div>
+                    <div className="flex space-x-3 justify-start items-center" >
+                      {emailadresse ? (<AiFillCheckCircle className="h-5 w-5 flex-shrink-0 text-green-500/75 ml-2" aria-hidden="true" />) : (<AiFillCloseCircle className="h-5 w-5 flex-shrink-0 text-red-500/75 ml-2" aria-hidden="true" />)}
+                      <h2 className="text-sm md:text-xl text-gray-500">
+                          <input type="text" placeholder="Emailadresse" onChange={handleInputChangeEmailadresse} className="outline-none" />
+                      </h2>
+                    </div>
 
                     <div className="border" />
                       <p className="text-xxs text-gray-500 px-4 leading-3 pt-4">Aufgrund des Kleinunternehmerstatus gem. § 19 UStG erheben wir keine Umsatzsteuer und weisen diese daher auch nicht aus.</p>

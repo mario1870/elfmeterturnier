@@ -14,7 +14,7 @@ export default function Infos() {
   }
 
   return (
-    <div className="absolute bg-green-500 w-80 md:w-96 top-20 h-[41.4rem] md:h-[42rem] z-5 flex flex-col rounded-3xl">
+    <div className="absolute bg-blue-200 w-80 md:w-96 top-20 h-[41.4rem] md:h-[42rem] z-5 flex flex-col rounded-3xl">
       <h1 className='w-full text-center pt-8 text-2xl font-bold'>Infos: </h1>
 
       <p className='px-4 py-4 mt-4'>⚽ Das Turnier findet am <b>04.08.23</b> auf dem <b>Sportplatz in Melchingen</b> statt</p>
