@@ -4,8 +4,29 @@ import Link from 'next/link';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Alert from "./alert"
+import Price from "./(form)/price"
 
 export default function Form(props) {
+
+  // Alert zeigen wenn Teamname bereits existiert
+  const [showExistingTeamAlert, setShowExistingTeamAlert] = useState(false);
+  const handleTeamnameExists = () => {
+    setShowExistingTeamAlert(true);
+    setTimeout(() => {
+      setShowExistingTeamAlert(false);
+    }, 5000);
+  };
+
+  // Alert zeigen wenn Teamname bereits existiert
+  const [showAllInputsAlert, setShowAllInputsAlert] = useState(false);
+  const handleAllInputs = () => {
+    setShowAllInputsAlert(true);
+    setTimeout(() => {
+      setShowAllInputsAlert(false);
+    }, 5000);
+  };
+
   const [teamname, setTeamname] = useState('');
   const [kontaktperson, setKontaktperson] = useState('');
   const [emailadresse, setEmailadresse] = useState('');
@@ -28,7 +49,7 @@ export default function Form(props) {
     // Überprüfe zuerst, ob der Benutzername bereits existiert
     const teamnameExists = await checkUsernameExists(teamname);
     if (teamnameExists) {
-      alert('Benutzername existiert bereits');
+      handleTeamnameExists()
       return;
     }
     else{
@@ -47,7 +68,7 @@ export default function Form(props) {
           console.error('Fehler beim Senden der Formulardaten:', error);
         }
       } else {
-        alert('Bitte alle Felder ausfüllen');
+        handleAllInputs()
       }
 
     }
@@ -70,17 +91,13 @@ export default function Form(props) {
 
     return(
         <>
+
+        {showExistingTeamAlert && <Alert text="Teamname ist bereits vergeben" />}
+        {showAllInputsAlert && <Alert text="Bitte alle Felder ausfüllen!" />}
               
         <div>
 
-          <motion.div className="flex flex-col items-center justify-center pt-4" initial={{ scale: 0 }}  animate={{ scale: 1 }}  transition={{ delay: 0.1, duration: 0.5 }}>
-              <h1 className="text-3xl md:text-5xl font-bold"> 
-              {(props.price / 100).toLocaleString('de-DE', {
-                style: 'currency',
-                currency: 'EUR'
-              })}
-              </h1>
-          </motion.div>
+          <Price price={props.price} />
 
           <ul className="flex justify-center py-4">
               <li className="text-xl font-bold" >

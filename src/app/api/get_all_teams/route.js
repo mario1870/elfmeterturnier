@@ -6,7 +6,7 @@ import { NextResponse, NextRequest } from 'next/server';
 
 export async function GET(req, res){
 
-    // insert into prisma
+    // insert into prisma  =>  {where:{gender: "m"}}
     try {
       const teams = await prisma.Teams.findMany();
       return NextResponse.json(teams);;
