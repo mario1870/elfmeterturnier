@@ -9,7 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 export async function POST(request) {
 
   const priceId = 'price_1NDWbCCI8cvk3GBMGZAhIqNV';
-  const url = 'http://localhost:3000'; 
+  const url = 'https://elfmeterturnier-melchingen.vercel.app/'; 
 
   const chunks = [];
   for await (const chunk of request.body) {
@@ -34,7 +34,7 @@ export async function POST(request) {
       },
     mode: 'payment',
     success_url: `${url}/success`,
-    cancel_url: `${url}`,
+    cancel_url: `${url}/failed`,
     });
 
   return NextResponse.json(session.url);

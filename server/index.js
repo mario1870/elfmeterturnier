@@ -82,4 +82,11 @@ app.post('/api/webhook', bodyParser.raw({type: 'application/json'}), async (requ
   response.status(200).end();
 });
 
-app.listen(8000, () => console.log('Running on port 8000'));
+app.get('/api/hello', (req, res) => {
+  const response = {
+    message: 'Hallo'
+  };
+  res.json(response);
+});
+
+app.listen(8000);
