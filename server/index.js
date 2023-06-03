@@ -1,19 +1,11 @@
 // Set your secret key. Remember to switch to your live secret key in production.
 // See your keys here: https://dashboard.stripe.com/apikeys
 
-require('dotenv').config({ path: '.env.local' });
+require('dotenv').config({ path: '.env' });
 
-const stripeWebhookSecret = "whsec_9NqhDWRnhCWBbw7S5ubUslT3z5s8xhip";
+const stripeWebhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
-console.log(stripeSecretKey);
-console.log(stripeWebhookSecret);
-
-
-
-// Find your endpoint's secret in your Dashboard's webhook settings
-const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
-
-const stripe = require('stripe')("sk_test_51NBK82CI8cvk3GBM28XQHbvBZePXfqlBfEUVf6yIkRsb7wNyEBccWSnOkX7lDBr8FJCSS8j293e5n4P2VnGr4f9t009BCHPaz3");
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 // Using Express
 const app = require('express')();
