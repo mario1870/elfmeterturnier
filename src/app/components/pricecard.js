@@ -18,7 +18,7 @@ const PricingCard = () => {
   const handleInputGenderWoman = (event) => {setGender("woman");};
 
   return (
-    <div className="border-gray-100 shadow-2xl border-4 text-center mx-4 w-80 md:w-96 md:mx-8 bg-white rounded-3xl">
+    <div className="border-gray-100 shadow-2xl border-4 text-center mx-4 w-80 h-[40rem] md:w-96 md:mx-8 bg-white rounded-3xl">
       
        <div>
         <div className="bg-blue-100 h-28 items-center font-bold flex flex-col justify-center items-center rounded-t-3xl">

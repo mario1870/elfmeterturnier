@@ -50,7 +50,7 @@ const Teamlist = () => {
             }
           })
         ) : (
-          <div>Sei der erste!</div>
+          <div>Noch keine Anmeldungen</div>
         )}
 
         </div>
