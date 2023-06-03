@@ -10,7 +10,6 @@ export default function Home() {
             <div className='w-screen min-h-screen bg-wallpaper bg-cover bg-center flex justify-center items-center flex-col pt-20 mx-0 overflow-x-hidden'>
               <Infos />
               <PricingCard />      
-              <Teamlist />
             </div>      
       </div>
     </>
