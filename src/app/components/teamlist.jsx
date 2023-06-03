@@ -50,7 +50,7 @@ const Teamlist = () => {
             }
           })
         ) : (
-          <div>Noch keine Anmeldungen</div>
+          <div>Noch keine Anmeldungen!</div>
         )}
 
         </div>
