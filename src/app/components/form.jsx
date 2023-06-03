@@ -70,10 +70,7 @@ export default function Form(props) {
       } else {
         handleAllInputs()
       }
-
     }
-
-
   };
 
   const handleInputChangeTeamname = (event) => {
@@ -99,7 +96,7 @@ export default function Form(props) {
 
           <Price price={props.price} />
 
-          <ul className="flex justify-center py-4">
+          <ul className="flex justify-center ">
               <li className="text-xl font-bold" >
                 <div className="mt-6 space-y-4">
                     <div className="flex space-x-3 justify-start items-center">

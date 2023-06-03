@@ -41,13 +41,17 @@ const Teamlist = () => {
         </div>
 
         <div className='mt-4'>
-        {Array.isArray(teams) && teams.map((team) => {
+        {Array.isArray(teams) && teams.length > 0 ? (
+          teams.map((team) => {
             if ((gender === "man" && team.gender === "m") || (gender === "woman" && team.gender === "w")) {
-                return <div className='text-start pl-8 pt-2' key={team.id}>⚽ {team.teamname}</div>;
+              return <div className='text-start pl-8 pt-2' key={team.id}>⚽ {team.teamname}</div>;
             } else {
-                return null;
+              return null;
             }
-        })}
+          })
+        ) : (
+          <div>Sei der erste!</div>
+        )}
 
         </div>
 

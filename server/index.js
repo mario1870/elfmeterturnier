@@ -3,12 +3,17 @@
 
 require('dotenv').config({ path: '.env.local' });
 
-//????????
-const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
-const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
-const stripeWebhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+const stripeWebhookSecret = "whsec_9NqhDWRnhCWBbw7S5ubUslT3z5s8xhip";
 
-const stripe = require('stripe')(stripeSecretKey);
+console.log(stripeSecretKey);
+console.log(stripeWebhookSecret);
+
+
+
+// Find your endpoint's secret in your Dashboard's webhook settings
+const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+const stripe = require('stripe')("sk_test_51NBK82CI8cvk3GBM28XQHbvBZePXfqlBfEUVf6yIkRsb7wNyEBccWSnOkX7lDBr8FJCSS8j293e5n4P2VnGr4f9t009BCHPaz3");
 
 // Using Express
 const app = require('express')();
@@ -50,6 +55,8 @@ app.post('/api/webhook', bodyParser.raw({type: 'application/json'}), async (requ
   const payload = request.body;
   const sig = request.headers['stripe-signature'];
 
+  console.log(payload)
+
   let event;
 
   try {
@@ -63,6 +70,7 @@ app.post('/api/webhook', bodyParser.raw({type: 'application/json'}), async (requ
   // Handle the checkout.session.completed event
   if (event.type === 'checkout.session.completed') {
 
+    console.log("NICE SESSION COMPLETED 'LULZ")
     // Retrieve the session. If you require line items in the response, you may include them by expanding line_items.
     const sessionWithLineItems = await stripe.checkout.sessions.retrieve(
       event.data.object.id,
@@ -82,4 +90,4 @@ app.post('/api/webhook', bodyParser.raw({type: 'application/json'}), async (requ
   response.status(200).end();
 });
 
-app.listen(8000);
+app.listen(8000, () => console.log('Running on port 8000'));
