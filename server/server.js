@@ -1,11 +1,25 @@
 // Set your secret key. Remember to switch to your live secret key in production.
 // See your keys here: https://dashboard.stripe.com/apikeys
 
-require('dotenv').config({ path: '.env' });
+const dotenv = require("dotenv");
+dotenv.config();
 
+//????????
+
+const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const stripeWebhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
+console.log(stripePublishableKey);
+console.log(stripeSecretKey);
+console.log(stripeWebhookSecret);
+
+
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
+// Find your endpoint's secret in your Dashboard's webhook settings
+const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
 
 // Using Express
 const app = require('express')();
@@ -52,7 +66,7 @@ app.post('/api/webhook', bodyParser.raw({type: 'application/json'}), async (requ
   let event;
 
   try {
-    event = stripe.webhooks.constructEvent(payload, sig, stripeWebhookSecret);
+    event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
   } catch (err) {
     return response.status(400).send(`Webhook Error: ${err.message}`);
   }
@@ -82,13 +96,4 @@ app.post('/api/webhook', bodyParser.raw({type: 'application/json'}), async (requ
   response.status(200).end();
 });
 
-app.get('/api/hello', (req, res) => {
-  const response = {
-    message: 'Hallo'
-  };
-  res.json(response);
-});
-
-
-// Export the Express API
-module.exports = app;
+app.listen(8000, () => console.log('Running on port 8000'));

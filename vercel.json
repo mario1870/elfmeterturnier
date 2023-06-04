@@ -1,4 +1,11 @@
 
+
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
+  "builds": [
+    { "src": "package.json", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/webhook", "dest": "server.js" },
+    { "src": "/api/(.*)", "use": "@vercel/next" }
+  ]
 }
