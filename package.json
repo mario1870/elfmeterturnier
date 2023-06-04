@@ -2,11 +2,13 @@
   "name": "11er_2023",
   "version": "0.1.0",
   "private": true,
+  "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && npx prisma generate",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "next build ",
+    "start": "node index.js",
+    "lint": "next lint",
+    "vercel-build": "echo hello"
   },
   "dependencies": {
     "@prisma/client": "^4.15.0",
@@ -32,7 +34,11 @@
     "stream": "^0.0.2",
     "stripe": "^12.7.0",
     "tailwindcss": "3.3.2",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.0",
+    "prisma": "^4.15.0"
   },
   "devDependencies": {
     "prisma": "^4.15.0"

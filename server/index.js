@@ -89,17 +89,6 @@ app.get('/api/hello', (req, res) => {
   res.json(response);
 });
 
-app.delete('/api/delete-all', async (req, res) => {
-  try {
-    // Daten löschen
-    await prisma.$executeRaw('DELETE FROM Teams'); // Hier "table_name" mit dem Namen Ihrer Tabelle ersetzen
-    
-    // Erfolgreiche Antwort senden
-    res.status(200).json({ message: 'Alle Daten wurden erfolgreich gelöscht.' });
-  } catch (error) {
-    // Bei einem Fehler eine Fehlerantwort senden
-    res.status(500).json({ error: 'Ein Fehler ist aufgetreten. Die Daten konnten nicht gelöscht werden.' });
-  }
-});
 
-app.listen(8000);
+// Export the Express API
+module.exports = app;
