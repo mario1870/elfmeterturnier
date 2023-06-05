@@ -8,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export async function POST(request) {
 
-  const priceId = 'price_1NFiN7CI8cvk3GBMfKHQa9yY';
+  const priceId = 'price_1NBeNKCI8cvk3GBMi4RtSVD4';
   const url = 'https://elfmeterturnier-melchingen.vercel.app/'; 
 
   const chunks = [];
