@@ -21,7 +21,7 @@ const Teamlist = () => {
     };
 
     fetchTeams();
-  }, []);
+  }, [gender]);
 
   return (
     <div className='w-full flex justify-center bg-transparent z-30 h-full '>
