@@ -88,10 +88,9 @@ export default function Form(props) {
 
     return(
         <>
-
         {showExistingTeamAlert && <Alert text="Teamname ist bereits vergeben" />}
         {showAllInputsAlert && <Alert text="Bitte alle Felder ausfüllen!" />}
-              
+
         <div>
 
           <Price price={props.price} />
