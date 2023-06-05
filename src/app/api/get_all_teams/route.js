@@ -10,7 +10,7 @@ export async function GET(req, res){
 
     // insert into prisma  =>  {where:{gender: "m"}}
     try {
-      const teams = await prisma.Teams.deleteMany();
+      const teams = await prisma.Teams.findMany();
       return NextResponse.json(teams);;
     } catch (error) {
       console.error(error);

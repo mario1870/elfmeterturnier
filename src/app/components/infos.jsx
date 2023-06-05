@@ -1,7 +1,7 @@
 "use client"
 import { useState } from 'react';
 import Link from 'next/link';
-
+import { motion } from 'framer-motion';
 export default function Infos() {
   const [showInfos, setShowInfos] = useState(true);
 
