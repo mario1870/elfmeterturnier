@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build && node server/server.js",
     "start": "node index.js",
-    "lint": "next lint",
+    "lint": "next lint"
   },
 
   "dependencies": {
