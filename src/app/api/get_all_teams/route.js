@@ -1,9 +1,6 @@
 
-
-
 import prisma from "../../../../lib/prisma"
 import { NextResponse, NextRequest } from 'next/server';
-import { sql } from "@vercel/postgres";
 
 
 export async function GET(req, res){
