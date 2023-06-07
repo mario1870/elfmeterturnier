@@ -9,6 +9,7 @@ import Image from "next/image"
 import { motion, useAnimation } from 'framer-motion';
 import Form from "./form"
 import Infos from "./infos"
+import Homepage_link from "./Homepage_link"
 
 const PricingCard = () => {
 
@@ -20,6 +21,7 @@ const PricingCard = () => {
   return (
     <div className="border-gray-100 shadow-2xl border-4 text-center mx-4 w-80  max-h-[40rem] md:absolute md:top-20 md:w-96 md:mx-8 bg-white rounded-3xl">
       
+      <Homepage_link />
        <div>
         <div className="bg-blue-100 h-28 items-center font-bold flex flex-col justify-center items-center rounded-t-3xl">
             <div><Image src="/TVMlogo.png" alt="Logo" width={100} height={100} className="p-4" /></div>

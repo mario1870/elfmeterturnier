@@ -130,7 +130,7 @@ export default function Form(props) {
 
           <div className="flex items-center px-4">
             <input onChange={handleInputChangeDatenschutz} checked={datenschutz} id="link-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-            <label htmlFor="link-checkbox" className="ml-2 text-xxs font-medium text-gray-900 dark:text-gray-300">Ich stimme den <Link href="#" className="text-blue-600 dark:text-blue-500 hover:underline">Datenschutzbestimmungen </Link>und dem <Link href="#" className="text-blue-600 dark:text-blue-500 hover:underline">Haftungsausschluss</Link> zu.</label>
+            <label htmlFor="link-checkbox" className="ml-2 text-xxs font-medium text-gray-900 dark:text-gray-300">Ich stimme den <Link href="/datenschutz" className="text-blue-600 dark:text-blue-500 hover:underline">Datenschutzbestimmungen </Link>und dem <Link href="/haftungsausschluss" className="text-blue-600 dark:text-blue-500 hover:underline">AGBs</Link> zu.</label>
           </div>
 
           <span className="w-full flex justify-center pb-8">
