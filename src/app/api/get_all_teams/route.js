@@ -16,7 +16,7 @@ export async function GET() {
       return NextResponse.json(teams);;
     } catch (error) {
       console.error(error);
-      return NextResponse.json("error");;
+      return NextResponse.json("error!!!");;
     }
       
 }
