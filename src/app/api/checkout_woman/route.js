@@ -34,7 +34,7 @@ export async function POST(request) {
       },
     mode: 'payment',
     success_url: `${url}/success`,
-    cancel_url: `${url}/failed`,
+    cancel_url: `${url}`,
     });
 
   return NextResponse.json(session.url);
