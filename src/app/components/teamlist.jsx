@@ -13,7 +13,7 @@ const Teamlist = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const response = await axios.get('https://one1er-api.onrender.com/teams');
+        const response = await axios.get(`https://one1er-api.onrender.com/teams_${gender}`);
         setTeams(response.data);
 
       } catch (error) {
@@ -43,22 +43,11 @@ const Teamlist = () => {
 
         <div className='mt-4'>
 
-        {teams.map((team) => {
-          if (team.gender === "w" && gender === "woman") {
-            return (
-              <li key={team.id}>
-                <h3 className='text-start pl-8 pt-2'>⚽ {team.teamname} {team.gender}</h3>
-              </li>
-            );
-          } 
-          if (team.gender === "m" && gender === "man") {
-            return (
-              <li key={team.id}>
-                <h3 className='text-start pl-8 pt-2'>⚽ {team.teamname} {team.gender}</h3>
-              </li>
-            );
-          }
-        })}
+        {teams.map((team) => (
+          <li key={team.id}>
+            <h3 className='text-start pl-8 pt-2'>⚽ {team.teamname}</h3>
+          </li>
+        ))}
 
         </div>
 
