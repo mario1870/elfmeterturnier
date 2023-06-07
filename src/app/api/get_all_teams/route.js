@@ -1,22 +1,19 @@
 
+// pages/api/proxy.js
+import axios from 'axios';
 
-import prisma from "../../../../lib/prisma"
-import { NextResponse, NextRequest } from 'next/server';
+export default async (req, res) => {
+  try {
+    const response = await axios.get('https://one1er-api.onrender.com/teams', {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET',
+      },
+    });
 
-export async function GET() {
-    try {
-      const allTeams = async () => {
-        const teams = await prisma.Teams.findMany();
-      
-        return teams; // Gibt true zurück, wenn ein Benutzer mit dem angegebenen Benutzernamen gefunden wurde, ansonsten false.
-    };
-
-    const teams = await allTeams();
-
-      return NextResponse.json(teams);;
-    } catch (error) {
-      console.error(error);
-      return NextResponse.json("error!!!");;
-    }
-      
-}
+    res.status(200).json(response.data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'An error occurred' });
+  }
+};

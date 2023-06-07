@@ -14,7 +14,7 @@ export default function Infos() {
   }
 
   return (
-    <div className="absolute bg-blue-200 w-80 md:w-96 top-20 h-[32.4rem] mt-28 z-5 flex flex-col rounded-b-3xl mx-4 md:mx-8 z-30">
+    <div className="absolute bg-blue-200 w-80 md:w-96 top-20 h-[32.4rem] md:h-[33rem] mt-28 z-5 flex flex-col rounded-b-3xl mx-4 md:mx-8 z-30">
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.1 }} className='px-4 py-3 mt-6'>⚽ Datum: <b>04.08.23</b></motion.p>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.2 }} className='px-4 py-3'>⚽ Ort: <b>Sportplatz in Melchingen</b></motion.p>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.3 }} className='px-4 py-3'>⚽ Turnierstart ist um <b>18:30 Uhr</b></motion.p>
