@@ -29,7 +29,7 @@ const Teamlist = () => {
         <div className="my-24 min-h-[25rem] border-gray-100 shadow-2xl border-4 text-center mx-4 w-80 md:w-96 md:mx-8 bg-white rounded-3xl md:absolute md:top-20 md:min-h-[40rem] md:my-0">
 
         <div className='w-full py-4 font-bold'>
-          <h1>Bisher angemeldete Teams: {teams.id}</h1>
+          <h1>Bisher angemeldete Teams: {teams.length}</h1>
         </div>
 
         <div className="w-full bg-blue-100 h-16 flex flex-row justify-center items-center rounded-3xl">
