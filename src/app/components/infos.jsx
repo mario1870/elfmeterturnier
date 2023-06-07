@@ -20,7 +20,7 @@ export default function Infos() {
       <p className='px-4 py-4 mt-4'>⚽ Das Turnier findet am <b>04.08.23</b> auf dem <b>Sportplatz in Melchingen</b> statt</p>
       <p className='px-4 py-4'>⚽ Turnierstart ist um <b>18:30 Uhr</b></p>
       <p className='px-4 py-4'>⚽ <b>Nach Abschluss des Bezahlvorgangs erhalten Sie eine Bestätigung per Mail. <br/> Durch diese Bestätigug ist ihre Anmeldung gültig!</b></p>
-      <p className='px-4 py-4'>⚽ Die Spielpläne erhaltet ihr am Turnierabend bei der Turnierleitung</p>
+      <p className='px-4 py-4'>⚽ Die Spielpläne erhaltet ihr am Turnierabend bei der Turnierleitung.</p>
       <p className='px-4 py-4'>⚽ Bei Fragen oder Problemen: <Link href="mailto:marioraach.tvm@gmail.com">marioraach.tvm@gmail.com</Link></p>
 
       <span className="w-full flex justify-center absolute bottom-8">
