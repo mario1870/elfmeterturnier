@@ -116,7 +116,7 @@ export default function Form(props) {
                     <div className="border" />
 
                     <div className="flex space-x-3 justify-start items-center" >
-                      {emailadresse ? (<AiFillCheckCircle className="h-5 w-5 flex-shrink-0 text-green-500/75 ml-2" aria-hidden="true" />) : (<AiFillCloseCircle className="h-5 w-5 flex-shrink-0 text-red-500/75 ml-2" aria-hidden="true" />)}
+                      {emailadresse.includes("@") ? (<AiFillCheckCircle className="h-5 w-5 flex-shrink-0 text-green-500/75 ml-2" aria-hidden="true" />) : (<AiFillCloseCircle className="h-5 w-5 flex-shrink-0 text-red-500/75 ml-2" aria-hidden="true" />)}
                       <h2 className="text-sm md:text-xl text-gray-500">
                           <input type="text" placeholder="Emailadresse" onChange={handleInputChangeEmailadresse} className="outline-none" />
                       </h2>

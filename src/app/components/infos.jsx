@@ -14,23 +14,22 @@ export default function Infos() {
   }
 
   return (
-    <div className="absolute bg-blue-200 w-80 md:w-96 top-20 h-[40rem] z-5 flex flex-col rounded-3xl mx-4 md:mx-8 z-30">
-      <h1 className='w-full text-center pt-8 text-2xl font-bold'>Infos: </h1>
+    <div className="absolute bg-blue-200 w-80 md:w-96 top-20 h-[32.4rem] mt-28 z-5 flex flex-col rounded-b-3xl mx-4 md:mx-8 z-30">
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.1 }} className='px-4 py-3 mt-6'>⚽ Datum: <b>04.08.23</b></motion.p>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.2 }} className='px-4 py-3'>⚽ Ort: <b>Sportplatz in Melchingen</b></motion.p>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.3 }} className='px-4 py-3'>⚽ Turnierstart ist um <b>18:30 Uhr</b></motion.p>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.4 }} className='px-4 py-3'>⚽ Die Anmeldung ist nach Abschluss des Zahlungsvorgangs und dem Erhalt der <b>Bestätigungsmail </b>gültig</motion.p>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }} className='px-4 py-3'>⚽ Die Spielpläne erhaltet ihr am Turnierabend bei der Turnierleitung.</motion.p>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.6 }} className='px-4 py-3'>⚽ Bei Fragen oder Problemen: <Link href="mailto:marioraach.tvm@gmail.com">marioraach.tvm@gmail.com</Link></motion.p>
 
-      <p className='px-4 py-4 mt-4'>⚽ Das Turnier findet am <b>04.08.23</b> auf dem <b>Sportplatz in Melchingen</b> statt</p>
-      <p className='px-4 py-4'>⚽ Turnierstart ist um <b>18:30 Uhr</b></p>
-      <p className='px-4 py-4'>⚽ <b>Nach Abschluss des Bezahlvorgangs erhalten Sie eine Bestätigung per Mail. <br/> Durch diese Bestätigug ist ihre Anmeldung gültig!</b></p>
-      <p className='px-4 py-4'>⚽ Die Spielpläne erhaltet ihr am Turnierabend bei der Turnierleitung.</p>
-      <p className='px-4 py-4'>⚽ Bei Fragen oder Problemen: <Link href="mailto:marioraach.tvm@gmail.com">marioraach.tvm@gmail.com</Link></p>
-
-      <span className="w-full flex justify-center absolute bottom-8">
+      <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.8 }} className="w-full flex justify-center absolute bottom-8">
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
           onClick={closeInfos}
         >
           Verstanden
         </button>
-      </span>
+      </motion.span>
     </div>
   );
 }

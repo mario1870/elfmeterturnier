@@ -24,7 +24,7 @@ const PricingCard = () => {
       <Homepage_link />
        <div>
         <div className="bg-blue-100 h-28 items-center font-bold flex flex-col justify-center items-center rounded-t-3xl">
-            <div><Image src="/TVMlogo.png" alt="Logo" width={100} height={100} className="p-4" /></div>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}><Image src="/TVMlogo.png" alt="Logo" width={100} height={100} className="p-4" /></motion.div>
         </div>
 
         <div className="w-full bg-blue-100 h-16 flex flex-row justify-center items-center rounded-b-3xl">
