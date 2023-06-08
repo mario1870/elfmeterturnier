@@ -3,7 +3,7 @@
 export default function Datenschutz(){
     return(
         <>
-            <div className="bg-blue-300 text-center ">
+            <div className="bg-blue-300 text-center p-8">
             <h1 className="font-bold pt-12">Datenschutzvereinbarung</h1>
             <br/>
             Diese Datenschutzvereinbarung regelt die Verarbeitung personenbezogener Daten im Zusammenhang mit der Anmeldung zum Turnier Elfmeterturnier Melchingen 2023.
