@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 const Teamlist = () => {
   const [teams, setTeams] = useState([]);
   const [gender, setGender] = useState("man")
+  const [loading, setLoading] = useState(true);
 
   const handleInputGenderMan = (event) => {setGender("man");};
   const handleInputGenderWoman = (event) => {setGender("woman");};
@@ -15,9 +16,10 @@ const Teamlist = () => {
       try {
         const response = await axios.get(`https://one1er-api.onrender.com/teams_${gender}`);
         setTeams(response.data);
-
+        setLoading(false);
       } catch (error) {
         console.error(error);
+        setLoading(false); // Setze den Ladezustand auf 'false', um den Fehlerzustand zu signalisieren
       }
     };
 
@@ -43,11 +45,17 @@ const Teamlist = () => {
 
         <div className='mt-4'>
 
-        {teams.map((team) => (
-          <li key={team.id}>
-            <h3 className='text-start pl-8 pt-2'>⚽ {team.teamname}</h3>
-          </li>
-        ))}
+        {loading ? (
+          <p>Lade Teams...</p>
+        ) : (
+          <div>
+            {teams.map((team) => (
+              <h3 key={team.id} className="text-start pl-8 pt-2">
+                ⚽ {team.teamname}
+              </h3>
+            ))}
+          </div>
+        )}
 
         </div>
 
