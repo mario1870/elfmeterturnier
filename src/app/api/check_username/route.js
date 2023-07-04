@@ -8,8 +8,6 @@ export async function POST(req, res){
     const teamname_raw = await req.json();
     const teamname = await teamname_raw.teamname
 
-    console.log(teamname)
-
     const usernameExists = async (teamname) => {
         const user = await prisma.Teams.findUnique({
             where: {

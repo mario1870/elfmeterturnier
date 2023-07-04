@@ -4,7 +4,7 @@
 import axios from "axios"
 import Link from "next/link"
 import {AiFillCheckCircle, AiFillCloseCircle} from 'react-icons/ai'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion, useAnimation } from 'framer-motion';
 import Form from "./form"
@@ -13,7 +13,24 @@ import Homepage_link from "./Homepage_link"
 
 const PricingCard = () => {
 
+  const [teams, setTeams] = useState([]);
   const [gender, setGender] = useState("man")
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTeams = async () => {
+      try {
+        const response = await axios.get(`/api/getTeams`);
+        setTeams(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+        setLoading(false); // Setze den Ladezustand auf 'false', um den Fehlerzustand zu signalisieren
+      }
+    };
+
+    fetchTeams();
+  }, [gender]);
 
   const handleInputGenderMan = (event) => {setGender("man");};
   const handleInputGenderWoman = (event) => {setGender("woman");};
@@ -42,7 +59,22 @@ const PricingCard = () => {
 
 
         <div className="flex gap-20">
-          {gender === "man" ? (<Form price="3000" gender="man" />) : (<Form price="2000" gender="woman" />)}     
+        {loading ? (
+          <p>Lade Formular...</p>
+        ) : (
+        gender === "man" ? (
+          teams.filter((team) => team.gender === "m").length >= 72 ? (
+            <div className="flex justify-center flex-col gap-8 h-[32rem] items-center text-3xl font-bold w-full"><p>Turnier leider voll</p><Image src="/3mkotw.jpg" width={200} height={200} alt="" /></div>
+          ) : (
+            <Form price="3000" gender="man" />
+          )
+        ) : teams.filter((team) => team.gender === "w").length >= 4 ? (
+          <div className="flex justify-center flex-col gap-8 h-[32rem] items-center text-3xl font-bold w-full"><p>Turnier leider voll</p><Image src="/3mkotw.jpg" width={200} height={200} alt="" /></div>
+        ) : (
+          <div><Form price="2000" gender="woman" /></div>
+        )
+        )}
+
         </div>
 
        </div>

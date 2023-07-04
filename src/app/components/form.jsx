@@ -2,7 +2,7 @@
 import axios from 'axios';
 import Link from 'next/link';
 import { AiFillCheckCircle, AiFillCloseCircle } from 'react-icons/ai';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Alert from "./alert"
 import Price from "./(form)/price"
@@ -42,7 +42,6 @@ export default function Form(props) {
       return false;
     }
   };
-
   const handlePayment = async (e) => {
     e.preventDefault();
 
@@ -72,7 +71,6 @@ export default function Form(props) {
       }
     }
   };
-
   const handleInputChangeTeamname = (event) => {
     setTeamname(event.target.value);
   };

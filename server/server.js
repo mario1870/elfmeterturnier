@@ -20,7 +20,6 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 // Find your endpoint's secret in your Dashboard's webhook settings
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
-
 // Using Express
 const app = require('express')();
   

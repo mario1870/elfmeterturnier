@@ -14,7 +14,7 @@ const Teamlist = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const response = await axios.get(`https://one1er-api.onrender.com/teams_${gender}`);
+        const response = await axios.get(`/api/getTeams`);
         setTeams(response.data);
         setLoading(false);
       } catch (error) {
@@ -31,7 +31,19 @@ const Teamlist = () => {
         <div className="my-24 min-h-[25rem] border-gray-100 shadow-2xl border-4 text-center mx-4 w-80 md:w-96 md:mx-8 bg-white rounded-3xl md:absolute md:top-20 md:min-h-[40rem] md:my-0">
 
         <div className='w-full py-4 font-bold'>
-          <h1>Bisher angemeldete Teams: {teams.length}</h1>
+          <h1>Bisher angemeldete Teams: {
+            teams
+              .filter((team) => {
+                if (gender === "man") {
+                  return team.gender === "m";
+                } else if (gender === "woman") {
+                  return team.gender === "w";
+                } else {
+                  return true;
+                }
+              })
+              .length} von {gender === "man" ? 72 : 24}
+          </h1>
         </div>
 
         <div className="w-full bg-blue-100 h-16 flex flex-row justify-center items-center rounded-3xl">
@@ -49,11 +61,22 @@ const Teamlist = () => {
           <p>Lade Teams...</p>
         ) : (
           <div>
-            {teams.map((team) => (
-              <h3 key={team.id} className="text-start pl-8 pt-2">
-                ⚽ {team.teamname}
-              </h3>
-            ))}
+            {teams
+              .filter(team => {
+                if (gender === 'man') {
+                  return team.gender === 'm';
+                } else if (gender === 'woman') {
+                  return team.gender === 'w';
+                } else {
+                  return true;
+                }
+              })
+              .map((team) => (
+                <h3 key={team.id} className="text-start pl-8 pt-2">
+                  ⚽ {team.teamname}
+                </h3>
+              ))
+            }
           </div>
         )}
 
