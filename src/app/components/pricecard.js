@@ -20,7 +20,7 @@ const PricingCard = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const response = await axios.get(`/api/getTeams`);
+        const response = await axios.get(`/api/check_username`);
         setTeams(response.data);
         setLoading(false);
       } catch (error) {

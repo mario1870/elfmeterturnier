@@ -2,10 +2,10 @@
 import prisma from "../../../../lib/prisma";
 import { NextResponse, NextRequest } from 'next/server';
 
-export async function GET(req, res) {
+export async function GET() {
     try {
         const teams = await prisma.teams.findMany();
-        return NextResponse.json({teams});
+        return NextResponse.json(teams);
     } catch (error) {
         console.error(error);
         return new NextResponse(500).json({ error: 'Internal Server Error' });

@@ -14,13 +14,19 @@ export async function POST(req, res){
                 teamname: teamname,
             },
         });
-      
         return !!user; // Gibt true zurück, wenn ein Benutzer mit dem angegebenen Benutzernamen gefunden wurde, ansonsten false.
     };
-
     const exists = await usernameExists(teamname);
-
-    console.log(exists)
-
     return NextResponse.json({ exists });
+}
+
+
+export async function GET() {
+    try {
+        const teams = await prisma.Teams.findMany();
+        return NextResponse.json(teams);
+    } catch (error) {
+        console.error(error);
+        return new NextResponse(500).json({ error: 'Internal Server Error' });
+    } 
 }
