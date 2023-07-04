@@ -68,7 +68,7 @@ const PricingCard = () => {
           ) : (
             <Form price="3000" gender="man" />
           )
-        ) : teams.filter((team) => team.gender === "w").length >= 4 ? (
+        ) : teams.filter((team) => team.gender === "w").length >= 24 ? (
           <div className="flex justify-center flex-col gap-8 h-[32rem] items-center text-3xl font-bold w-full"><p>Turnier leider voll</p><Image src="/3mkotw.jpg" width={200} height={200} alt="" /></div>
         ) : (
           <div><Form price="2000" gender="woman" /></div>
