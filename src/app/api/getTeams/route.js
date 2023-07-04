@@ -5,7 +5,7 @@ import { NextResponse, NextRequest } from 'next/server';
 export async function GET(req, res) {
     try {
         const teams = await prisma.teams.findMany();
-        return NextResponse.json({helo: "ok"});
+        return NextResponse.json({teams});
     } catch (error) {
         console.error(error);
         return new NextResponse(500).json({ error: 'Internal Server Error' });
