@@ -19,7 +19,7 @@ export default function Infos() {
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.2 }} className='px-4 py-3'>⚽ Ort: <b>Sportplatz in Melchingen</b></motion.p>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.3 }} className='px-4 py-3'>⚽ Turnierstart ist um <b>18:30 Uhr</b></motion.p>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.4 }} className='px-4 py-3'>⚽ Die Anmeldung ist nach Abschluss des Zahlungsvorgangs und dem Erhalt der <b>Bestätigungsmail </b>gültig</motion.p>
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }} className='px-4 py-3'>⚽ Die Spielpläne erhaltet ihr am Turnierabend bei der Turnierleitung.</motion.p>
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }} className='px-4 py-3'>⚽ Die Spielpläne erhaltet ihr vorab per Mail oder unter tv-melchingen.com</motion.p>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.6 }} className='px-4 py-3'>⚽ Bei Fragen oder Problemen: <Link href="mailto:marioraach.tvm@gmail.com">marioraach.tvm@gmail.com</Link></motion.p>
 
       <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.8 }} className="w-full flex justify-center absolute bottom-8">
