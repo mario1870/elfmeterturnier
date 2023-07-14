@@ -42,7 +42,7 @@ const Teamlist = () => {
                   return true;
                 }
               })
-              .length} von {gender === "man" ? 72 : 24}
+              .length}
           </h1>
         </div>
 
